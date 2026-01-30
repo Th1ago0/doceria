@@ -1,3 +1,26 @@
+const form = document.getElementById('contact-form');
+const errorElement = document.getElementById('err-msg');
+if (form)
+{
+    form.addEventListener('submit', (e) =>
+    {
+      let msg = '';  
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const subject = document.getElementById('subject').value.trim(); 
+      let condition = name == '' || name == null || subject == '' || subject == null || email == '' || email == null;
+    
+      if (condition) {
+        msg = "Preencha todos os campos.";
+      }
+    
+      e.preventDefault();
+      errorElement.innerText = msg;
+    });
+}
+
+
+
 (function ($) {
     "use strict";
 
